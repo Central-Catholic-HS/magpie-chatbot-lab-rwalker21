@@ -1,3 +1,4 @@
+
 /**
  * A program to carry on conversations with a human user.
  * This version: 
@@ -44,6 +45,24 @@ public class Magpie3
 				|| findKeyword(statement, "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
+		} else if (findKeyword(statement, "dog") >= 0 || findKeyword(statement, "cat") >= 0) {
+                    System.out.println("Tell me more about your pets.");
+                } else if (findKeyword(statement, "mr.") >= 0) {
+                    System.out.println("He sounds like a good teacher.");
+                } else if (findKeyword(statement, "mrs.") != -1) {
+                    System.out.println("She sounds like a good teacher.");
+                }
+		else if (findKeyword(statement, "no") >= 0)
+		{
+		        response = "Why so negative?";
+                }
+                else if (findKeyword(statement, "turtle") >= 0)
+		{
+		        response = "Do you mean yertle?";
+                }
+                else if (findKeyword(statement, "yertle") >= 0)
+		{
+		        response = "My best friend!";
 		}
 		else
 		{
@@ -142,7 +161,7 @@ public class Magpie3
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -162,6 +181,14 @@ public class Magpie3
 		else if (whichResponse == 3)
 		{
 			response = "You don't say.";
+		}
+		else if (whichResponse == 4)
+		{
+			response = "Quite.";
+		}
+		else if (whichResponse == 5)
+		{
+			response = "Really?";
 		}
 
 		return response;
